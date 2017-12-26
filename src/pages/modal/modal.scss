@@ -1,0 +1,50 @@
+page-modal {
+
+    .searchbar-md .searchbar-input{
+        box-shadow: none;
+    }
+
+    .searchbar-ios{
+        border-bottom:none;
+        background:none;
+    }
+
+    .local{
+        padding:15px 5px 15px 5px;
+    }
+
+    .segment-md .segment-button {
+        font-size:9px;
+        text-transform: uppercase;
+        font-family: 'Quicksand';
+        color:#fff;
+    }
+
+    .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated{
+        border-color:#fff;
+    }
+
+
+    .toolbar-title-md, .toolbar-title-ios{
+        color:#fff;
+         font-family: 'Quicksand';
+    }
+    
+    .toolbar-ios .segment-button{
+        color:#fff;
+    }
+    .segment-ios .segment-button{
+        border-color:#fff;
+        text-transform: uppercase;
+    }
+    .segment-ios .segment-button.segment-activated{
+        background-color:#fff;
+        border-color:#fff;
+        text-transform: uppercase;
+    }
+
+    h1{
+        font-family: 'Quicksand';
+    }
+
+}

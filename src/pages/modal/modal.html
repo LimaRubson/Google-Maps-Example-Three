@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title text-center>
+      Informe o endereço
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close" showWhen="android,windows,ios"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+        <ion-searchbar
+            #searchbar
+            [(ngModel)]="autocomplete.query"
+            [showCancelButton]="true"
+            (ionInput)="updateSearch()"
+            placeholder="Informe a origem">
+        </ion-searchbar>
+      
+    <ion-list>
+
+        <ion-item *ngFor="let item of autocompleteItems" (click)="chooseItem(item)" text-wrap>
+            {{ item.description }}
+        </ion-item>
+
+    </ion-list><br/>
+
+
+        <ion-card [ngSwitch]="segments" color="primary">
+
+          <ion-title text-center color="primary" class="local">Locais - Fundaj</ion-title>
+            <ion-toolbar color="primary">
+              <ion-segment [(ngModel)]="segments">
+                  <ion-segment-button text-center value="recife">
+                      Recife
+                  </ion-segment-button>
+                  <ion-segment-button text-center value="petrolina">
+                     Petrolina
+                  </ion-segment-button>
+                   <ion-segment-button text-center value="caruaru">
+                      Caruaru
+                  </ion-segment-button>
+                </ion-segment>
+              </ion-toolbar>
+
+            <ion-list *ngSwitchCase="'recife'">
+              <ion-item *ngFor="let item of locaisRecife" (click)="selecionarLocal(item)" text-wrap>{{ item.name }}</ion-item>
+            </ion-list>
+
+            <ion-list *ngSwitchCase="'petrolina'">
+               <ion-item *ngFor="let item of locaisPetrolina" (click)="selecionarLocal(item)" text-wrap>{{ item.name }}</ion-item>
+            </ion-list>
+
+            <ion-list *ngSwitchCase="'caruaru'">
+              <ion-item *ngFor="let item of locaisCaruaru" (click)="selecionarLocal(item)" text-wrap>{{ item.name }}</ion-item>
+            </ion-list>
+        
+        </ion-card><br/><br/>
+
+</ion-content>
